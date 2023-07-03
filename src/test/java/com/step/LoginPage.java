@@ -3,6 +3,7 @@ package com.step;
 import java.io.IOException;
 
 import com.Base.Utility;
+import com.Exception.UserNotFound;
 import com.page.AdactinLoginPage;
 import com.page.HotelBookPage;
 
@@ -21,18 +22,42 @@ public class LoginPage extends Utility{
 		browserLaunch("https://adactinhotelapp.com/HotelAppBuild2/");
 	}
 	@When("User enters username and password")
-	public void user_enters_username_and_password() throws IOException {
-		
+	public void user_enters_username_and_password() throws IOException, InterruptedException {
+		Thread.sleep(3000);
 		//data driven framework
 		lp=new AdactinLoginPage();
 		lp.getUsername().sendKeys(getData(1,0));
+		Thread.sleep(3000);
 		lp.getPassword().sendKeys(getData(1,1));
 		
 	}
+	
+	@When("User enters wrong {string} and {string}")
+	public void user_enters_wrong_and(String string, String string2) throws UserNotFound, InterruptedException {
+
+		lp=new AdactinLoginPage();
+		lp.getUsername().sendKeys(string);
+		Thread.sleep(3000);
+		lp.getPassword().sendKeys(string2);
+	
+	}
+	
+	/*@When("User enters wrong Aishwarya and Aishwarya")
+	public void user_enters_wrong_aishwarya_and_aishwarya() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	*/
 	@When("User clicks the login Button")
-	public void user_clicks_the_login_button() {
+	public void user_clicks_the_login_button() throws InterruptedException {
+		Thread.sleep(3000);
 		lp.getLoginBtn().click();
 		
+	}
+	@When("User clicks the login Button after incorrect credentials")
+	public void user_clicks_the_login_button_after_incorrect_credentials() throws UserNotFound {
+ throw new UserNotFound();
+	
 	}
 	@Then("verify whether enters the booking page")
 	public void verify_whether_enters_the_booking_page() {

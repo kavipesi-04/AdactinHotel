@@ -1,5 +1,6 @@
 Feature: To validate the Search Hotel feature of the application
 
+@valid
 Scenario: To validate the booking feature by entering the location,hotel name etc.
 
 Given User enters the Search Hotel page

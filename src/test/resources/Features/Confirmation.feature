@@ -1,5 +1,6 @@
 Feature: To check the confirmation page
 
+@valid
 Scenario: To check whether user able enter details and confirm
 
 Given User enters confirmation page

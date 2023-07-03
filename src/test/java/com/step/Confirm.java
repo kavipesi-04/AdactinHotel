@@ -3,6 +3,7 @@ package com.step;
 import java.io.IOException;
 
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 import com.Base.Utility;
 import com.page.BookAHotelPage;
@@ -15,6 +16,7 @@ public class Confirm extends Utility {
 
 	BookAHotelPage bp;
 	
+	@Test
 	@Given("User enters confirmation page")
 	public void user_enters_confirmation_page() throws InterruptedException {
 		bp = new BookAHotelPage();

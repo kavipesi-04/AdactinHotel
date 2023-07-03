@@ -1,5 +1,5 @@
 Feature: To validate Select Page Feature
-
+@valid
 Scenario: To validate Whether user able to continue booking
 
 Given User enters Select Page
